@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Snake – Made by Arafat Khan</title>
+  
+  <!-- External Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Link to external JavaScript -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <div class="bar">
+    <h1>Snake</h1>
+    <div class="sc">Score <b id="s">0</b> &nbsp; Best <b id="b">0</b></div>
+  </div>
+
+  <!-- Game Area -->
+  <div class="wrap">
+    <canvas id="c" width="400" height="400" aria-label="Snake game board"></canvas>
+    
+    <div class="ov" id="ov">
+      <h2 id="t">Snake khel shuru karo</h2>
+      <p id="m">Swipe ya arrow keys se chalao. Phal khao, deewar aur khud se bacho.</p>
+      <button id="go">Start game</button>
+    </div>
+  </div>
+
+  <!-- Mobile Controls -->
+  <div class="pad" aria-label="Controls">
+    <button class="u" data-d="u" aria-label="Up">&#9650;</button>
+    <button class="l" data-d="l" aria-label="Left">&#9664;</button>
+    <button class="d" data-d="d" aria-label="Down">&#9660;</button>
+    <button class="r" data-d="r" aria-label="Right">&#9654;</button>
+  </div>
+
+  <p class="credit">Made by Arafat Khan</p>
+
+</body>
+</html>

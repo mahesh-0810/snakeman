@@ -1,0 +1,152 @@
+/* =========================================
+   CSS Variables & Theming
+   ========================================= */
+:root {
+  --bg: #f3e9ff;
+  --board: #e4d3fb;
+  --ink: #2b1b52;
+  --snake: #5b2fc9;
+  --head: #3a1a94;
+  --food: #ff5a7a;
+  --btn: #2b1b52;
+  --btnink: #fff;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1d1b3a;
+    --board: #2a2757;
+    --ink: #f1ecff;
+    --snake: #ffd166;
+    --head: #fff1c2;
+    --food: #ff5a7a;
+    --btn: #f1ecff;
+    --btnink: #1d1b3a;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1d1b3a;
+  --board: #2a2757;
+  --ink: #f1ecff;
+  --snake: #ffd166;
+  --head: #fff1c2;
+  --food: #ff5a7a;
+  --btn: #f1ecff;
+  --btnink: #1d1b3a;
+}
+
+/* =========================================
+   Global Styles & Layout
+   ========================================= */
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Fredoka', system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* =========================================
+   Typography & Header
+   ========================================= */
+.bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  width: min(92vw, 420px);
+}
+
+h1 { margin: 0; font-size: 30px; font-weight: 700; }
+.sc { font-size: 18px; font-weight: 500; }
+.sc b { font-size: 24px; }
+.credit { margin: 0; font-size: 16px; font-weight: 500; opacity: 0.8; }
+
+/* =========================================
+   Game Board & Overlay
+   ========================================= */
+.wrap {
+  position: relative;
+  width: min(92vw, 420px);
+}
+
+canvas {
+  width: 100%;
+  aspect-ratio: 1;
+  display: block;
+  background: var(--board);
+  border-radius: 18px;
+}
+
+.ov {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  border-radius: 18px;
+  text-align: center;
+  padding: 16px;
+}
+
+.ov h2 { margin: 0; font-size: 28px; }
+.ov p { margin: 0; font-size: 16px; }
+.hide { display: none; }
+
+/* =========================================
+   Buttons & Controls
+   ========================================= */
+button {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 18px;
+  border: 0;
+  border-radius: 14px;
+  background: var(--btn);
+  color: var(--btnink);
+  padding: 12px 26px;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid var(--food);
+  outline-offset: 3px;
+}
+
+.pad {
+  display: grid;
+  grid-template-columns: repeat(3, 64px);
+  grid-template-rows: repeat(2, 56px);
+  gap: 8px;
+}
+
+.pad button { padding: 0; font-size: 24px; }
+.pad .u { grid-column: 2; }
+.pad .l { grid-row: 2; grid-column: 1; }
+.pad .d { grid-row: 2; grid-column: 2; }
+.pad .r { grid-row: 2; grid-column: 3; }
+
+@media (hover: hover) and (pointer: fine) {
+  .pad { display: none; }
+}
